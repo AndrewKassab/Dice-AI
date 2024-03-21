@@ -1,0 +1,4 @@
+openai~=1.14.0
+PyMuPDF
+selenium~=4.10.0
+pathlib~=1.0.1
