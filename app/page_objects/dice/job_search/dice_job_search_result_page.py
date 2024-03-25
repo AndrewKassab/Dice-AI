@@ -4,7 +4,7 @@ from app.enum.dice.search_filters.employment_type import EmploymentType
 from app.enum.dice.search_filters.posted_date import PostedDate
 from app.enum.dice.search_filters.work_settings import WorkSetting
 from app.page_objects.dice.base_dice_page import BaseDicePage
-from app.page_objects.dice.job_description_page import DiceJobDescriptionPage
+from app.page_objects.dice.job_search.dice_job_description_page import DiceJobDescriptionPage
 
 
 class DiceJobSearchResultPage(BaseDicePage):
