@@ -6,14 +6,15 @@ from app.page_objects.dice.job_search.dice_easy_apply_page import DiceEasyApplyP
 
 class DiceJobDescriptionPage(BaseDicePage):
 
+    __APPLY_BUTTON_LOCATOR = (By.XPATH, "//button[contains(@class, 'btn') and contains(@class, 'btn-primary')]")
+
     def __init__(self, driver):
-        super.__init__(driver)
+        super().__init__(driver)
 
     def click_apply_now(self):
-        is_easy_apply = self.__is_easy_apply()
-        apply_button = self.find_element((By.ID, 'applyButton'))
+        apply_button = self.find_element(self.__APPLY_BUTTON_LOCATOR)
         apply_button.click()
-        if is_easy_apply:
+        if self.__is_easy_apply:
             return DiceEasyApplyPage()
 
     def get_job_description(self):
