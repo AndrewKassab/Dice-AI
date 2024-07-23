@@ -6,7 +6,7 @@ from jobbot.app.page_objects.dice.dice_home_feed_page import DiceHomeFeedPage
 
 class DiceLoginPage(BaseDicePage):
 
-    __EMAIL_INPUT = (By.CSS_SELECTOR, 'input[name=email]')
+    __EMAIL_INPUT = (By.ID, 'email')
     __PASSWORD_INPUT = (By.ID, 'password')
     __SIGN_IN_BUTTON = (By.XPATH, "//button[contains(text(),'Sign In')]")
 
