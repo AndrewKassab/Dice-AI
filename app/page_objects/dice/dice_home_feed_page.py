@@ -9,9 +9,6 @@ class DiceHomeFeedPage(BaseDicePage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        popup_exit_button = self.find_element((By.ID, 'sms-close'))
-        if popup_exit_button.is_displayed():
-            popup_exit_button.click()
         self.search_bar = DiceJobSearchBar(driver)
 
     def search_job(self, search_term, location) -> DiceJobSearchResultPage:

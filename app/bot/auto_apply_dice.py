@@ -1,13 +1,9 @@
 from selenium import webdriver
 
-from jobbot.app.enum.dice.search_filters.posted_date import PostedDate
-from jobbot.app.enum.dice.search_filters.work_settings import WorkSetting
 from jobbot.app.page_objects.dice.dice_login_page import DiceLoginPage
-from jobbot.settings import DICE_EMAIL, DICE_PASSWORD, RESUME_PATH
+from jobbot.settings import DICE_EMAIL, DICE_PASSWORD, RESUME_PATH, POSTED_DATE, WORK_SETTINGS_OPTIONS
 
-from selenium_ai.app.driver.ai_web_driver import AiWebDriver
-
-driver = AiWebDriver()
+driver = webdriver.Chrome()
 
 driver.get('https://www.dice.com/dashboard/login')
 
@@ -20,9 +16,10 @@ home_feed_page = login_page.login(DICE_EMAIL, DICE_PASSWORD)
 search_result_page = home_feed_page.search_job(
     'Software Engineer Developer Java Python Quality Automation', 'San Diego')
 
-search_result_page.toggle_work_settings_option(WorkSetting.HYBRID)\
-    .toggle_work_settings_option(WorkSetting.REMOTE)\
-    .set_posted_date(PostedDate.LAST_7_DAYS)\
+for option in WORK_SETTINGS_OPTIONS:
+    search_result_page.toggle_work_settings_option(option)
+
+search_result_page.set_posted_date(POSTED_DATE)\
     .toggle_easy_apply()
 
 current_index = 0

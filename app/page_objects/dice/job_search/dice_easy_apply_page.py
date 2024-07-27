@@ -36,9 +36,10 @@ class DiceEasyApplyPage(BaseDicePage):
 
     def __upload_file(self, file_path):
         file_input = self.find_element(self.__FILE_INPUT_LOCATOR)
+        self.driver.execute_script("arguments[0].style.display = 'block';", file_input)
         file_input.send_keys(file_path)
 
-        upload_button = self.find_element(By.CSS_SELECTOR, "span[title='Upload']")
+        upload_button = self.find_element((By.XPATH, "//span[contains(text(), 'Upload')]"))
         upload_button.click()
 
     def apply_to_job(self, resume_file_path=None, cover_letter_file_path=None):
