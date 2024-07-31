@@ -58,3 +58,14 @@ class DiceJobSearchResultPage(BaseDicePage):
         next_page_element = self.find_element(self.__NEXT_BUTTON_LOCATOR)
         next_page_element.click()
         return self
+
+    def is_job_at_index_applied(self, index):
+        job_links = self.find_elements(self.__JOB_LINKS_LOCATOR)
+        job_at_index_link = job_links[index]
+        card_header_div = job_at_index_link.find_element(By.XPATH, "ancestor::div[contains(@class, 'card-header')]")
+
+        applied_elements = card_header_div.find_elements(By.XPATH, ".//div[contains(@class, 'ribbon-status-applied')]")
+
+        if len(applied_elements) > 0:
+            return True
+        return False

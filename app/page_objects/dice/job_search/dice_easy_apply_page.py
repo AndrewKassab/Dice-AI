@@ -14,12 +14,12 @@ class DiceEasyApplyPage(BaseDicePage):
         super().__init__(driver)
 
     def click_next_button(self):
-        next_button = self.find_element(self.__NEXT_BUTTON_LOCATOR)
+        next_button = self.find_element_wait_clickable(self.__NEXT_BUTTON_LOCATOR)
         next_button.click()
         return self
 
     def click_apply_button(self):
-        apply_button = self.find_element(self.__NEXT_BUTTON_LOCATOR)
+        apply_button = self.find_element_wait_clickable(self.__NEXT_BUTTON_LOCATOR)
         apply_button.click()
 
     def upload_cover_letter(self, file_path):

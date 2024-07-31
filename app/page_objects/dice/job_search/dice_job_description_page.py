@@ -7,19 +7,21 @@ from jobbot.app.page_objects.dice.job_search.dice_easy_apply_page import DiceEas
 class DiceJobDescriptionPage(BaseDicePage):
 
     __APPLY_BUTTON_LOCATOR = (By.TAG_NAME, "apply-button-wc")
+    __JOB_DESCRIPTION_LOCATOR = (By.XPATH, "//section[contains(@class, 'job-description')]")
 
     def __init__(self, driver):
         super().__init__(driver)
 
-    def click_apply_now(self):
+    # TODO: Use __is_easy_apply to figure out what object to return
+    def click_apply(self):
         apply_button = self.find_element(self.__APPLY_BUTTON_LOCATOR)
         apply_button.click()
         return DiceEasyApplyPage(self.driver)
 
     def get_job_description(self):
-        job_description_section = self.find_element((By.XPATH, "//section[contains(@class, 'job-description')]"))
+        job_description_section = self.find_element()
         return job_description_section.text
 
-    # TODO: better implementation
+    # TODO: better implementation that doesn't use text
     def __is_easy_apply(self):
-        return self.find_element((By.XPATH, "//*[contains(text(),'Easy Apply')]")).exists()
+        pass
