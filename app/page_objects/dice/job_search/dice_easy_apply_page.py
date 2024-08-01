@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from jobbot.app.page_objects.dice.base_dice_page import BaseDicePage
 
@@ -15,6 +17,9 @@ class DiceEasyApplyPage(BaseDicePage):
 
     def click_next_button(self):
         next_button = self.find_element_wait_clickable(self.__NEXT_BUTTON_LOCATOR)
+        WebDriverWait(self.driver, timeout=2).until_not(
+            EC.presence_of_element_located((By.CLASS_NAME, 'fsp-summary__body'))
+        )
         next_button.click()
         return self
 
@@ -47,5 +52,6 @@ class DiceEasyApplyPage(BaseDicePage):
             self.upload_resume(resume_file_path)
         if cover_letter_file_path:
             self.upload_cover_letter(cover_letter_file_path)
+        self.driver
         self.click_next_button()
         self.click_apply_button()

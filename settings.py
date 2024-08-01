@@ -13,8 +13,8 @@ load_dotenv()
 RESUME_PATH = str((Path(__file__).parent / 'app' / 'resources' / 'resume.pdf').resolve())
 
 driver = webdriver.Chrome()
-driver.implicitly_wait(3)
-DRIVER_EXPLICIT_WAIT = 3
+driver.implicitly_wait(2)
+DRIVER_EXPLICIT_WAIT = 2
 
 # Env Variables
 DICE_EMAIL = os.environ.get('DICE_EMAIL')
