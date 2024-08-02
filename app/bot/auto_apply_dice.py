@@ -1,6 +1,5 @@
 from jobbot.app.page_objects.dice.dice_login_page import DiceLoginPage
 import jobbot.app.util.ai.ai_job_posting_utils as AI
-from jobbot.app.util.parse_pdf import parse_pdf_to_text
 from jobbot.settings import DICE_EMAIL, DICE_PASSWORD, RESUME_PATH, POSTED_DATE, WORK_SETTINGS_OPTIONS, \
     DICE_SEARCH_QUERY, DICE_LOCATION_QUERY, driver, USE_AI, RESUME_TEXT, COVER_LETTER_PATH
 
@@ -29,11 +28,11 @@ while current_index < search_result_page.get_number_of_jobs_on_page():
         job_description_page = search_result_page.select_job_at_index(current_index)
         job_description = job_description_page.get_job_description()
 
-        if USE_AI and AI.is_job_relevant(job_description, RESUME_TEXT):
+        if USE_AI:
             AI.write_cover_letter_as_pdf(job_description, RESUME_TEXT, COVER_LETTER_PATH)
             job_description_page.click_apply() \
                 .apply_to_job(resume_file_path=RESUME_PATH, cover_letter_file_path=COVER_LETTER_PATH)
-        elif not USE_AI:
+        else:
             job_description_page.click_apply() \
                 .apply_to_job(resume_file_path=RESUME_PATH)
 
