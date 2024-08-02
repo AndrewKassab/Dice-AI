@@ -8,7 +8,7 @@ from jobbot.app.page_objects.dice.base_dice_page import BaseDicePage
 class DiceEasyApplyPage(BaseDicePage):
 
     __NEXT_BUTTON_LOCATOR = (By.XPATH, "//button[contains(@class, 'btn-next')]")
-    __COVER_LETTER_LOCATOR = (By.XPATH, "//div[contains(@class,'cover-letter-wrapper')]")
+    __COVER_LETTER_DIV_LOCATOR = (By.XPATH, "//div[contains(@class,'cover-letter-wrapper')]")
     __RESUME_LOCATOR = (By.XPATH, "//div[contains(@class,'resume-container')]")
     __FILE_INPUT_LOCATOR = (By.ID, "fsp-fileUpload")
 
@@ -17,7 +17,7 @@ class DiceEasyApplyPage(BaseDicePage):
 
     def click_next_button(self):
         next_button = self.find_element_wait_clickable(self.__NEXT_BUTTON_LOCATOR)
-        WebDriverWait(self.driver, timeout=2).until_not(
+        WebDriverWait(self.driver, timeout=5).until_not(
             EC.presence_of_element_located((By.CLASS_NAME, 'fsp-summary__body'))
         )
         next_button.click()
@@ -28,7 +28,10 @@ class DiceEasyApplyPage(BaseDicePage):
         apply_button.click()
 
     def upload_cover_letter(self, file_path):
-        cover_letter_button = self.find_element(self.__COVER_LETTER_LOCATOR)
+        cover_letter_button = self.find_element(self.__COVER_LETTER_DIV_LOCATOR).find_element(By.XPATH, ".//button")
+        WebDriverWait(self.driver, timeout=5).until_not(
+            EC.presence_of_element_located((By.CLASS_NAME, 'fsp-summary__body'))
+        )
         cover_letter_button.click()
         self.__upload_file(file_path)
         return self
@@ -52,6 +55,5 @@ class DiceEasyApplyPage(BaseDicePage):
             self.upload_resume(resume_file_path)
         if cover_letter_file_path:
             self.upload_cover_letter(cover_letter_file_path)
-        self.driver
         self.click_next_button()
         self.click_apply_button()

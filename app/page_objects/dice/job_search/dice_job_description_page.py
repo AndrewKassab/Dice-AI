@@ -19,7 +19,7 @@ class DiceJobDescriptionPage(BaseDicePage):
         return DiceEasyApplyPage(self.driver)
 
     def get_job_description(self):
-        job_description_section = self.find_element()
+        job_description_section = self.find_element(self.__JOB_DESCRIPTION_LOCATOR)
         return job_description_section.text
 
     # TODO: better implementation that doesn't use text

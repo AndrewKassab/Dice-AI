@@ -1,8 +1,9 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
-from jobbot.app.enum.dice.search_filters.employment_type import EmploymentType
-from jobbot.app.enum.dice.search_filters.posted_date import PostedDate
-from jobbot.app.enum.dice.search_filters.work_settings import WorkSetting
+from jobbot.app.enum.dice.search.employment_type import EmploymentType
+from jobbot.app.enum.dice.search.posted_date import PostedDate
+from jobbot.app.enum.dice.search.work_settings import WorkSetting
 from jobbot.app.page_objects.dice.base_dice_page import BaseDicePage
 from jobbot.app.page_objects.dice.job_search.dice_job_description_page import DiceJobDescriptionPage
 
@@ -10,7 +11,8 @@ from jobbot.app.page_objects.dice.job_search.dice_job_description_page import Di
 class DiceJobSearchResultPage(BaseDicePage):
 
     __JOB_LINKS_LOCATOR = (By.XPATH, "//a[@data-cy='card-title-link']")
-    __NEXT_BUTTON_LOCATOR = (By.XPATH, "//a[contains(text(),'»')]")
+    __NEXT_BUTTON_LOCATOR = (By.XPATH, "//li[contains(@class,'pagination-next')]")
+    __JOBS_PER_PAGE_SELECT_LOCATOR = (By.ID, "pageSize_2")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -41,6 +43,12 @@ class DiceJobSearchResultPage(BaseDicePage):
         self.driver.refresh()
         return self
 
+    def maximize_jobs_per_page(self):
+        jobs_per_page_select = self.find_element(self.__JOBS_PER_PAGE_SELECT_LOCATOR)
+        select = Select(jobs_per_page_select)
+        select.select_by_visible_text('100')
+        return self
+
     def get_number_of_jobs_on_page(self):
         job_links = self.find_elements(self.__JOB_LINKS_LOCATOR)
         return len(job_links)
@@ -58,6 +66,10 @@ class DiceJobSearchResultPage(BaseDicePage):
         next_page_element = self.find_element(self.__NEXT_BUTTON_LOCATOR)
         next_page_element.click()
         return self
+
+    def is_next_page_available(self):
+        next_page_element = self.find_element(self.__NEXT_BUTTON_LOCATOR)
+        return 'disabled' in (next_page_element.get_attribute('class').split())
 
     def is_job_at_index_applied(self, index):
         job_links = self.find_elements(self.__JOB_LINKS_LOCATOR)
