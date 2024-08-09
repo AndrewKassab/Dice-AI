@@ -1,7 +1,6 @@
 from pathlib import Path
 import fitz
 from unittest import TestCase
-from jobbot.app.util.ai.ai_job_posting_utils import is_job_relevant
 from jobbot.app.util.parse_pdf import parse_pdf_to_text
 
 current_script_path = Path(__file__).parent.parent.parent

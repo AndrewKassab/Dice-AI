@@ -1,3 +1,4 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 from jobbot.app.page_objects.dice.base_dice_page import BaseDicePage
@@ -21,6 +22,13 @@ class DiceJobDescriptionPage(BaseDicePage):
     def get_job_description(self):
         job_description_section = self.find_element(self.__JOB_DESCRIPTION_LOCATOR)
         return job_description_section.text
+
+    def is_apply_button_displayed(self):
+        try:
+            apply_button = self.find_element(self.__APPLY_BUTTON_LOCATOR)
+            return apply_button.is_displayed()
+        except NoSuchElementException:
+            return False
 
     # TODO: better implementation that doesn't use text
     def __is_easy_apply(self):

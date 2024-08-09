@@ -28,8 +28,8 @@ def write_cover_letter_as_pdf(job_description, resume_text, output_path):
     pdf.set_font('Arial', size=12)
     pdf.multi_cell(0, 10, response_content)
 
-    #if os.path.exists(output_path):
-    #    os.remove(output_path)
+    if os.path.exists(output_path):
+        os.remove(output_path)
 
     pdf.output(output_path)
 

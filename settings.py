@@ -33,7 +33,7 @@ DICE_PASSWORD = os.environ.get('DICE_PASSWORD')
 POSTED_DATE = PostedDate.LAST_7_DAYS
 WORK_SETTINGS_OPTIONS = [
     WorkSetting.REMOTE,
-    WorkSetting.HYBRID
+    #WorkSetting.HYBRID
 ]
-DICE_SEARCH_QUERY = "Front End Engineer"
+DICE_SEARCH_QUERY = "Software Engineer Developer Quality Java Python"
 DICE_LOCATION_QUERY = "San Diego"
