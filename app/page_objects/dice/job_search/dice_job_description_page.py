@@ -9,6 +9,7 @@ class DiceJobDescriptionPage(BaseDicePage):
 
     __APPLY_BUTTON_LOCATOR = (By.TAG_NAME, "apply-button-wc")
     __JOB_DESCRIPTION_LOCATOR = (By.XPATH, "//section[contains(@class, 'job-description')]")
+    __JOB_TITLE_LOCATOR = (By.CSS_SELECTOR, "h1[data-cy='jobTitle']")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -23,12 +24,8 @@ class DiceJobDescriptionPage(BaseDicePage):
         job_description_section = self.find_element(self.__JOB_DESCRIPTION_LOCATOR)
         return job_description_section.text
 
-    def is_apply_button_displayed(self):
-        try:
-            apply_button = self.find_element(self.__APPLY_BUTTON_LOCATOR)
-            return apply_button.is_displayed()
-        except NoSuchElementException:
-            return False
+    def get_job_title(self):
+        return self.find_element(self.__JOB_TITLE_LOCATOR).text
 
     # TODO: better implementation that doesn't use text
     def __is_easy_apply(self):
