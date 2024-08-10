@@ -45,7 +45,7 @@ while current_index < search_result_page.get_number_of_jobs_on_page():
             logging.info(f"Applied to job: {job_title}")
 
         except NoSuchElementException as e:
-            logging.error(f"NoSuchElementException at {driver.current_url}: {str(e)}")
+            logging.error(f"NoSuchElementException at {driver.current_url}: {str(e.msg)}")
 
         driver.close()
         driver.switch_to.window(driver.window_handles[0])
