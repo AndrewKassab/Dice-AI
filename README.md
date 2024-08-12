@@ -3,7 +3,7 @@ Job-bot is a program that helps with the grueling process of job-hunting by auto
 If employers are using automation and AI tools to assist in their application process, then why shouldn't we?
 
 Job-bot uses Selenium in combination with OpenAI's api to automate browser interactions related to job applications. 
-OpenAI's gpt4-o model is used to write cover letters and determine whether a job is relevant to the applicant in question. 
+OpenAI's gpt4-o model is used to write cover letters based on the job description.
 
 Job-Bot is able to apply to Easy-Apply jobs on [Dice](https://dice.com) based on a search query and filter parameters.
 If the setting is activated, it will leverage AI to write cover letters catered to the job description. In the future, 
