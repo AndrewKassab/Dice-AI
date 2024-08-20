@@ -29,7 +29,7 @@ DRIVER_EXPLICIT_WAIT = 2
 # Activates Job description matching and cover letter writing but requires the
 # OPENAI_APY_KEY environment variable to be set.
 USE_AI = True
-if os.environ.get('OPENAI_APY_KEY') is None:
+if os.environ.get('OPENAI_API_KEY') is None:
     USE_AI = False
 
 # Env Variables
