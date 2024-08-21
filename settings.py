@@ -7,8 +7,8 @@ from pathlib import Path
 
 from selenium import webdriver
 
-from jobbot.app.enum.dice.search.posted_date import PostedDate
-from jobbot.app.enum.dice.search.work_settings import WorkSetting
+from jobbot.app.enum.dice.dice_posted_date import DicePostedDate
+from jobbot.app.enum.dice.dice_work_settings import DiceWorkSetting
 from jobbot.app.util.parse_pdf import parse_pdf_to_text
 
 load_dotenv()
@@ -35,13 +35,15 @@ if os.environ.get('OPENAI_API_KEY') is None:
 # Env Variables
 DICE_EMAIL = os.environ.get('DICE_EMAIL')
 DICE_PASSWORD = os.environ.get('DICE_PASSWORD')
+LINKEDIN_EMAIL = os.environ.get('LINKED_EMAIL')
+LINKEDIN_PASSWORD = os.environ.get('LINKEDIN_PASSWORD')
 
-# Dice job search configuration, set to preferences.
-POSTED_DATE = PostedDate.LAST_7_DAYS
+# DICE job search configuration
+POSTED_DATE = DicePostedDate.LAST_7_DAYS
 WORK_SETTINGS_OPTIONS = [
-    WorkSetting.REMOTE,
+    DiceWorkSetting.REMOTE,
     #WorkSetting.HYBRID,
     #WorkSetting.ON_SITE,
 ]
-DICE_SEARCH_QUERY = ""
-DICE_LOCATION_QUERY = ""
+DICE_SEARCH_QUERY = "Java Python Software Engineer Quality Developer Backend"
+DICE_LOCATION_QUERY = "San Diego"

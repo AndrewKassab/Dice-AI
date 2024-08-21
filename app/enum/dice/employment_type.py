@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class EmploymentType(Enum):
+class DiceEmploymentType(Enum):
     FULL_TIME = "FULLTIME"
     PART_TIME = "PARTTIME"
     CONTRACT = "CONTRACTS"

@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class WorkSetting(Enum):
+class DiceWorkSetting(Enum):
 
     REMOTE = "Remote"
     ON_SITE = "On-Site"

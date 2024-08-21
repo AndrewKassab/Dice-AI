@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
-from jobbot.app.enum.dice.search.employment_type import EmploymentType
-from jobbot.app.enum.dice.search.posted_date import PostedDate
-from jobbot.app.enum.dice.search.work_settings import WorkSetting
+from jobbot.app.enum.dice.employment_type import DiceEmploymentType
+from jobbot.app.enum.dice.dice_posted_date import DicePostedDate
+from jobbot.app.enum.dice.dice_work_settings import DiceWorkSetting
 from jobbot.app.page_objects.dice.base_dice_page import BaseDicePage
 from jobbot.app.page_objects.dice.job_search.dice_job_description_page import DiceJobDescriptionPage
 
@@ -17,20 +17,20 @@ class DiceJobSearchResultPage(BaseDicePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def toggle_work_settings_option(self, work_setting: WorkSetting):
+    def toggle_work_settings_option(self, work_setting: DiceWorkSetting):
         list_element = self.find_element((By.CSS_SELECTOR, f"button[aria-label='Filter Search Results by {work_setting.value}']"))
         list_element.click()
         self.driver.refresh()
         return self
 
-    def set_posted_date(self, posted_date: PostedDate):
+    def set_posted_date(self, posted_date: DicePostedDate):
         posted_date_element = self.find_element(
             (By.XPATH, f"//button[contains(text(),'{posted_date.value}')]"))
         posted_date_element.click()
         self.driver.refresh()
         return self
 
-    def toggle_employment_type(self, employment_type: EmploymentType):
+    def toggle_employment_type(self, employment_type: DiceEmploymentType):
         employment_type_element = self.find_element((By.CSS_SELECTOR, f"li[data-cy-value='{employment_type.value}']"))
         employment_type_element.click()
         self.driver.refresh()

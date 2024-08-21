@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class PostedDate(Enum):
+class DicePostedDate(Enum):
     ANY_DATE = "Any Date"
     TODAY = "Today"
     LAST_3_DAYS = "Last 3 Days"
