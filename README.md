@@ -1,6 +1,5 @@
-# Job-Bot (v1)
-Job-bot is a program that helps with the grueling process of job-hunting by automating it away.
-If employers are using automation and AI tools to assist in their application process, then why shouldn't we?
+# Dice-AI (v1)
+Dice-AI is a program that helps with the grueling process of job-hunting by automating it away.
 
 Job-bot uses Selenium in combination with OpenAI's api to automate browser interactions related to job applications. 
 OpenAI's gpt4-o model is used to write cover letters based on the job description.
@@ -13,8 +12,7 @@ OpenAI's gpt4-o model is used to write cover letters based on the job descriptio
 
 # Planned Features
 
-* Support for External job applications on Dice that don't use Easy Apply
-* Support for Linkedin (both Easy Apply / External)
+* Support for External job applications that don't use Easy Apply
   
 # Setup
 
