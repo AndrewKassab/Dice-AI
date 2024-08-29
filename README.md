@@ -5,11 +5,16 @@ If employers are using automation and AI tools to assist in their application pr
 Job-bot uses Selenium in combination with OpenAI's api to automate browser interactions related to job applications. 
 OpenAI's gpt4-o model is used to write cover letters based on the job description.
 
-Job-Bot is able to apply to Easy-Apply jobs on [Dice](https://dice.com) based on a search query and filter parameters.
-If the setting is activated, it will leverage AI to write cover letters catered to the job description. In the future, 
-if current capabilities allow, there are plans to add support for applications that aren't Easy-Apply through integration
-with another Selenium-AI library I am creating here: [Selenium Python with AI](https://github.com/AndrewKassab/selenium_ai)
+# Current Features
 
+* Applies to Easy-Apply jobs on [Dice](https://dice.com) based on search query and filter parameters
+* Leverages AI to write cover letters catered to the job descripotion.
+
+# Planned Features
+
+* Support for External job applications on Dice that don't use Easy Apply
+* Support for Linkedin (both Easy Apply / External)
+  
 # Setup
 
 The setup does consist of several steps, they should be rather simple, but just require some patience.
