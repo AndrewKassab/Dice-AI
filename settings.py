@@ -13,9 +13,23 @@ from jobbot.app.util.parse_pdf import parse_pdf_to_text
 
 load_dotenv()
 
+logs_path = str((Path(__file__).parent / 'logs').resolve())
 resources_path = (Path(__file__).parent / 'app' / 'resources')
 RESUME_PATH = str((resources_path / 'resume.pdf').resolve())
 COVER_LETTER_PATH = str((resources_path / 'cover_letter.pdf').resolve())
+
+# Logging
+logging_formatter = logging.Formatter('%(asctime)s - %(message)s')
+
+success_logger = logging.getLogger('success_logger')
+success_handler = logging.FileHandler(logs_path + "/successful_applications.log")
+success_handler.setFormatter(logging_formatter)
+success_logger.addHandler(success_handler)
+
+failure_logger = logging.getLogger('failure_logger')
+failure_handler = logging.FileHandler(logs_path + "/failed_applications.log")
+failure_handler.setFormatter(logging_formatter)
+failure_logger.addHandler(failure_handler)
 
 try:
     RESUME_TEXT = parse_pdf_to_text(RESUME_PATH)

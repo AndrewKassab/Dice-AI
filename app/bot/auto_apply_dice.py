@@ -1,11 +1,10 @@
-import logging
-
 from selenium.common import NoSuchElementException
 
 from jobbot.app.page_objects.dice.dice_login_page import DiceLoginPage
 import jobbot.app.util.ai.ai_job_posting_utils as AI
 from jobbot.settings import DICE_EMAIL, DICE_PASSWORD, RESUME_PATH, POSTED_DATE, WORK_SETTINGS_OPTIONS, \
-    DICE_SEARCH_QUERY, DICE_LOCATION_QUERY, driver, USE_AI, RESUME_TEXT, COVER_LETTER_PATH
+    DICE_SEARCH_QUERY, DICE_LOCATION_QUERY, driver, USE_AI, RESUME_TEXT, COVER_LETTER_PATH, success_logger, \
+    failure_logger
 
 driver.get('https://www.dice.com/dashboard/login')
 
@@ -33,6 +32,7 @@ while current_index < search_result_page.get_number_of_jobs_on_page():
         try:
             job_title = job_description_page.get_job_title()
             job_description = job_description_page.get_job_description()
+            job_link = driver.current_url
 
             if USE_AI:
                 AI.write_cover_letter_as_pdf(job_description, RESUME_TEXT, COVER_LETTER_PATH)
@@ -42,10 +42,10 @@ while current_index < search_result_page.get_number_of_jobs_on_page():
                 job_description_page.click_apply() \
                     .apply_to_job(resume_file_path=RESUME_PATH)
 
-            logging.info(f"Applied to job: {job_title}")
+            success_logger.info(f"Applied to job: {job_title} at {job_link}")
 
         except NoSuchElementException as e:
-            logging.error(f"NoSuchElementException at {driver.current_url}: {str(e.msg)}")
+            failure_logger.exception(f"Exception occurred while applying to job at {job_link}")
 
         driver.close()
         driver.switch_to.window(driver.window_handles[0])
