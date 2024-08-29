@@ -1,7 +1,7 @@
 # Dice-AI (v1)
 Dice-AI is a program that helps with the grueling process of job-hunting by automating it away.
 
-Job-bot uses Selenium in combination with OpenAI's api to automate browser interactions related to job applications. 
+Dice-AI uses Selenium in combination with OpenAI's api to automate browser interactions related to job applications. 
 OpenAI's gpt4-o model is used to write cover letters based on the job description.
 
 # Current Features
