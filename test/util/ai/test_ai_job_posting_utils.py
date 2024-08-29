@@ -1,7 +1,7 @@
 from pathlib import Path
 import fitz
 from unittest import TestCase
-from jobbot.app.util.parse_pdf import parse_pdf_to_text
+from dice_ai.app.util.parse_pdf import parse_pdf_to_text
 
 current_script_path = Path(__file__).parent.parent.parent
 resources_path = current_script_path / 'resources' / 'test_resume.pdf'

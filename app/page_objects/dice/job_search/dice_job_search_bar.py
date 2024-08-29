@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from jobbot.app.page_objects.base_page_object import BasePageObject
-from jobbot.app.page_objects.dice.job_search.dice_job_search_result_page import DiceJobSearchResultPage
+from dice_ai.app.page_objects.base_page_object import BasePageObject
+from dice_ai.app.page_objects.dice.job_search.dice_job_search_result_page import DiceJobSearchResultPage
 
 
 class DiceJobSearchBar(BasePageObject):

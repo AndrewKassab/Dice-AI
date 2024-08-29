@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 
-from jobbot.app.enum.linkedin.linkedin_nav_item import LinkedinNavItem
-from jobbot.app.page_objects.base_page_object import BasePageObject
-from jobbot.app.page_objects.linkedin.jobs.linkedin_jobs_page import LinkedinJobsPage
+from dice_ai.app.enum.linkedin.linkedin_nav_item import LinkedinNavItem
+from dice_ai.app.page_objects.base_page_object import BasePageObject
+from dice_ai.app.page_objects.linkedin.jobs.linkedin_jobs_page import LinkedinJobsPage
 
 
 class LinkedinNavBar(BasePageObject):
