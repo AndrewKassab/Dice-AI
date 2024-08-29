@@ -22,11 +22,13 @@ COVER_LETTER_PATH = str((resources_path / 'cover_letter.pdf').resolve())
 logging_formatter = logging.Formatter('%(asctime)s - %(message)s')
 
 success_logger = logging.getLogger('success_logger')
+success_logger.setLevel(logging.INFO)
 success_handler = logging.FileHandler(logs_path + "/successful_applications.log")
 success_handler.setFormatter(logging_formatter)
 success_logger.addHandler(success_handler)
 
 failure_logger = logging.getLogger('failure_logger')
+failure_logger.setLevel(logging.INFO)
 failure_handler = logging.FileHandler(logs_path + "/failed_applications.log")
 failure_handler.setFormatter(logging_formatter)
 failure_logger.addHandler(failure_handler)

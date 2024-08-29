@@ -78,6 +78,6 @@ class DiceJobSearchResultPage(BaseDicePage):
 
         applied_elements = card_header_div.find_elements(By.XPATH, ".//div[contains(@class, 'ribbon-status-applied')]")
 
-        if len(applied_elements) > 0:
+        if applied_elements:
             return True
         return False
