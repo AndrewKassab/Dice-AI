@@ -9,6 +9,7 @@ OpenAI's gpt4-o model is used to write cover letters based on the job descriptio
 
 * Applies to Easy-Apply jobs on [Dice](https://dice.com) based on search query and filter parameters
 * Leverages AI to write cover letters catered to the job descripotion.
+* Logs of applications kept in /logs
 
 # Planned Features
 
