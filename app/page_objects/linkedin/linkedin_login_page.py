@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from jobbot.app.page_objects.base_page import BasePage
+from dice_ai.app.page_objects.base_page import BasePage
 
 
 class LinkedinLoginPage(BasePage):

@@ -1,6 +1,6 @@
 from abc import ABC
 
-from jobbot.app.page_objects.base_page_object import BasePageObject
+from dice_ai.app.page_objects.base_page_object import BasePageObject
 
 
 class BasePage(BasePageObject, ABC):

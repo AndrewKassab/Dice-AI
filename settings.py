@@ -8,9 +8,9 @@ from pathlib import Path
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from jobbot.app.enum.dice.dice_posted_date import DicePostedDate
-from jobbot.app.enum.dice.dice_work_settings import DiceWorkSetting
-from jobbot.app.util.parse_pdf import parse_pdf_to_text
+from dice_ai.app.enum.dice.dice_posted_date import DicePostedDate
+from dice_ai.app.enum.dice.dice_work_settings import DiceWorkSetting
+from dice_ai.app.util.parse_pdf import parse_pdf_to_text
 
 load_dotenv()
 

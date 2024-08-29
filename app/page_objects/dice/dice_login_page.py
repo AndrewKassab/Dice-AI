@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
-from jobbot.app.page_objects.dice.base_dice_page import BaseDicePage
-from jobbot.app.page_objects.dice.dice_home_feed_page import DiceHomeFeedPage
+from dice_ai.app.page_objects.dice.base_dice_page import BaseDicePage
+from dice_ai.app.page_objects.dice.dice_home_feed_page import DiceHomeFeedPage
 
 
 class DiceLoginPage(BaseDicePage):

@@ -1,8 +1,8 @@
 from selenium.common import NoSuchElementException
 
-from jobbot.app.page_objects.dice.dice_login_page import DiceLoginPage
-import jobbot.app.util.ai.ai_job_posting_utils as AI
-from jobbot.settings import DICE_EMAIL, DICE_PASSWORD, RESUME_PATH, POSTED_DATE, WORK_SETTINGS_OPTIONS, \
+from dice_ai.app.page_objects.dice.dice_login_page import DiceLoginPage
+import dice_ai.app.util.ai.ai_job_posting_utils as AI
+from dice_ai.settings import DICE_EMAIL, DICE_PASSWORD, RESUME_PATH, POSTED_DATE, WORK_SETTINGS_OPTIONS, \
     DICE_SEARCH_QUERY, DICE_LOCATION_QUERY, driver, USE_AI, RESUME_TEXT, COVER_LETTER_PATH, success_logger, \
     failure_logger
 

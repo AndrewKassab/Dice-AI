@@ -2,10 +2,10 @@ from selenium.common import NoSuchElementException
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 
-from jobbot.app.enum.linkedin.linkedin_date_posted import LinkedinDatePosted
-from jobbot.app.enum.linkedin.linkedin_work_settings import LinkedinWorkSetting
-from jobbot.app.page_objects.linkedin.base_linkedin_page import BaseLinkedinPage
-from jobbot.app.page_objects.linkedin.jobs.linkedin_application_modal import LinkedinApplicationModal
+from dice_ai.app.enum.linkedin.linkedin_date_posted import LinkedinDatePosted
+from dice_ai.app.enum.linkedin.linkedin_work_settings import LinkedinWorkSetting
+from dice_ai.app.page_objects.linkedin.base_linkedin_page import BaseLinkedinPage
+from dice_ai.app.page_objects.linkedin.jobs.linkedin_application_modal import LinkedinApplicationModal
 
 
 class LinkedinJobsPage(BaseLinkedinPage):

@@ -1,8 +1,8 @@
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
-from jobbot.app.enum.linkedin.linkedin_question_type import LinkedinQuestionType
-from jobbot.app.page_objects.base_page_object import BasePageObject
+from dice_ai.app.enum.linkedin.linkedin_question_type import LinkedinQuestionType
+from dice_ai.app.page_objects.base_page_object import BasePageObject
 
 
 class LinkedinApplicationModal(BasePageObject):

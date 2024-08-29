@@ -6,7 +6,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from jobbot.settings import DRIVER_EXPLICIT_WAIT
+from dice_ai.settings import DRIVER_EXPLICIT_WAIT
 
 
 class BasePageObject(ABC):
