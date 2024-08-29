@@ -33,3 +33,16 @@ def write_cover_letter_as_pdf(job_description, resume_text, output_path):
 
     pdf.output(output_path)
 
+
+def respond_to_question(question, resume_text) -> str:
+    """Leverages openAI's API to respond to the given question using information from the resume"""
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "Please respond to the provided question using information from the resume. If the question provided is indicated as a Yes or No radio question, then only respond with 'Yes' or 'No', otherwise, "
+                                          "The resume follows here: \n'''\n" + resume_text + "'\n'''"},
+            {"role": "user", "content": "The job description is the following: \n'''\n" + job_description + "\n'''"}
+        ]
+    )
+
